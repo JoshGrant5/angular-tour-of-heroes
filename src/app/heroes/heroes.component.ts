@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import { MessageService } from '../message.service';
 
 // Component decorator specifies the Angular metadata for the component
 @Component({
@@ -13,13 +14,7 @@ export class HeroesComponent implements OnInit {
   heroes!: Hero[];
   selectedHero!: Hero;
 
-  // Define a prive heroService and identify it as a HeroService injection site
-  constructor(private heroService: HeroService) {}
-
-  getHeroes(): void {
-    this.heroService.getHeroes()
-        .subscribe(heroes => this.heroes = heroes);
-  }
+  constructor(private heroService: HeroService, private messageService: MessageService) { }
 
   // Lifecycle hook - called shortly after component creation, so a good place to put initialization logic
   ngOnInit() {
@@ -28,6 +23,12 @@ export class HeroesComponent implements OnInit {
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
+  }
+
+  getHeroes(): void {
+    this.heroService.getHeroes()
+        .subscribe(heroes => this.heroes = heroes);
   }
 
 }
