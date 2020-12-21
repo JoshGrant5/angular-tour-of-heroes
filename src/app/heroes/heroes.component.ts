@@ -9,26 +9,18 @@ import { MessageService } from '../message.service';
   templateUrl: './heroes.component.html', // Location of component's template file
   styleUrls: ['./heroes.component.scss'] // Location of component's private CSS/SCSS
 })
+
 export class HeroesComponent implements OnInit {
-
   heroes!: Hero[];
-  selectedHero!: Hero;
 
-  constructor(private heroService: HeroService, private messageService: MessageService) { }
+  constructor(private heroService: HeroService) { }
 
-  // Lifecycle hook - called shortly after component creation, so a good place to put initialization logic
   ngOnInit() {
     this.getHeroes();
   }
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
-  }
-
   getHeroes(): void {
     this.heroService.getHeroes()
-        .subscribe(heroes => this.heroes = heroes);
+    .subscribe(heroes => this.heroes = heroes);
   }
-
 }
