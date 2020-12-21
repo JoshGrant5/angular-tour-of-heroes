@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
-import { MessageService } from '../message.service';
 
 // Component decorator specifies the Angular metadata for the component
 @Component({
@@ -9,9 +9,8 @@ import { MessageService } from '../message.service';
   templateUrl: './heroes.component.html', // Location of component's template file
   styleUrls: ['./heroes.component.scss'] // Location of component's private CSS/SCSS
 })
-
 export class HeroesComponent implements OnInit {
-  heroes!: Hero[];
+  heroes: Hero[];
 
   constructor(private heroService: HeroService) { }
 

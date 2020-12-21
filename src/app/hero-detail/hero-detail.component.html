@@ -1,13 +1,13 @@
 <!-- ngIf hides empty details, so only displays if exists -->
 <div *ngIf="hero">
-  <!-- uppercase is a built in Angular Pipe, providing interpolation binding after the pipe operator (|) -->
+   <!-- uppercase is a built in Angular Pipe, providing interpolation binding after the pipe operator (|) -->
   <h2>{{hero.name | uppercase}} Details</h2>
   <div><span>id: </span>{{hero.id}}</div>
   <div>
+    <!-- ngModel is Angular's 2-way binding system. Must be "opted-in" through import in app.module.ts -->
     <label>name:
-      <!-- ngModel is Angular's 2-way binding system. Must be "opted-in" through import in app.module.ts -->
       <input [(ngModel)]="hero.name" placeholder="name"/>
     </label>
   </div>
-
+  <button (click)="goBack()">go back</button>
 </div>
