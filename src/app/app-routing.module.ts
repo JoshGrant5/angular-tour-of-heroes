@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HeroesComponent } from './heroes/heroes.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 // A typical Angular Route has two properties:
 
@@ -8,7 +9,9 @@ import { HeroesComponent } from './heroes/heroes.component';
 // component: the component that the router should create when navigating to this route.
 
 const routes: Routes = [
-  { path: 'heroes', component: HeroesComponent }
+  { path: 'heroes', component: HeroesComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 
 @NgModule({
