@@ -10,7 +10,7 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./heroes.component.scss'] // Location of component's private CSS/SCSS
 })
 export class HeroesComponent implements OnInit {
-  heroes: Hero[];
+  heroes!: Hero[];
 
   constructor(private heroService: HeroService) { }
 
