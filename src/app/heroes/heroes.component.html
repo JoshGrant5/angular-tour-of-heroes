@@ -7,16 +7,3 @@
     <span class="badge">{{hero.id}}</span> {{hero.name}}
   </li>
 </ul>
-
-<!-- ngIf hides empty details, so only displays if exists -->
-<div *ngIf="selectedHero">
-  <!-- uppercase is a built in Angular Pipe, providing interpolation binding after the pipe operator (|) -->
-  <h2>{{selectedHero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedHero.id}}</div>
-  <div>
-    <label>name:
-      <!-- ngModel is Angular's 2-way binding system. Must be "opted-in" through import in app.module.ts -->
-      <input [(ngModel)]="selectedHero.name" placeholder="name"/>
-    </label>
-  </div>
-</div>
